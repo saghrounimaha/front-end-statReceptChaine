@@ -1,0 +1,90 @@
+<!-- login.component.html -->
+<div class="bg-light dark:bg-transparent min-vh-100 d-flex flex-row align-items-center">
+  <c-container breakpoint="md">
+    <c-row class="justify-content-center">
+      <c-col lg="7" md="9" xl="6">
+        <c-card-group>
+          <c-card class="p-4">
+            <c-card-body  >
+              <form [formGroup]="loginForm" (ngSubmit)="login()">
+                <h1>Login</h1>
+                <p class="text-body-secondary">Sign In to your account</p>
+                <c-input-group class="mb-3">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilUser"></svg>
+                  </span>
+                  <div class="form-group">
+
+                    <label>Username</label>
+                    <input
+                      type="text"
+                      formControlName="username"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+                      
+                    />
+                    @if (submitted && f['username'].errors) {
+                    <div class="invalid-feedback">
+                      @if (f['username'].errors['required']) {
+                      <div>Username is required</div>
+                      }
+                  @if (f['username'].errors['minlength']) {
+                      <div>Username must be at least 6 characters</div>
+                      }
+                  @if (f['username'].errors['maxlength']) {
+                      <div>Username must not exceed 20 characters</div>
+                      }
+                    </div>
+                    }
+                  </div>
+</c-input-group>
+                <c-input-group class="mb-4">
+                  <span cInputGroupText>
+                    <svg cIcon name="cilLockLocked"></svg>
+                  </span>
+                  <div class="form-group">
+                    <label>Password</label>
+                    <input
+                      type="password"
+                      formControlName="password"
+                      class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+                      
+                    />
+                    @if (submitted && f['password'].errors) {
+                    <div class="invalid-feedback">
+                      @if (f['password'].errors['required']) {
+                      <div>Password is required</div>
+                      }
+                  @if (f['password'].errors['minlength']) {
+                      <div>Password must be at least 4 characters</div>
+                      }
+                  @if (f['password'].errors['maxlength']) {
+                      <div>Username must not exceed 40 characters</div>
+                      }
+                    </div>
+                    }
+                  </div>
+
+</c-input-group>
+                <c-row>
+                  <c-col xs="6">
+                    <button cButton class="px-4" color="primary" type="submit" >
+                      Login
+                    </button>
+                  </c-col>
+                  <c-col class="text-right" xs="6">
+                    <button cButton class="px-0" color="link" routerLink="/reset-password">
+                      Forgot password?
+                    </button>
+                  </c-col>
+                </c-row>
+              </form>
+            </c-card-body>
+          </c-card>
+          
+        </c-card-group>
+      </c-col>
+    </c-row>
+  </c-container>
+</div>

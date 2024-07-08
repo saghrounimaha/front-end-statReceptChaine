@@ -1,0 +1,163 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Courbe représentant le temps de travail pour chaque employé</strong>
+      </c-card-header>
+      <c-card-body>
+
+        <c-col xs="12" lg="6">
+          <c-card class="mb-4">
+            <c-card-header>
+              Temps de Travail par Employé
+            </c-card-header>
+            <c-card-body>
+              <c-chart type="line"
+              [data]="chartDataTempsTravailEmploye"
+              [options]="{ responsive: true }">
+        </c-chart>
+                    </c-card-body>
+          </c-card>
+        </c-col>
+       
+        <app-docs-example href="components/button-group">
+          <c-button-group aria-label="Basic example" role="group">
+            <button cButton color="primary">Left</button>
+            <button cButton color="primary">Middle</button>
+            <button cButton color="primary">Right</button>
+          </c-button-group>
+        </app-docs-example>
+        
+        <app-docs-example href="components/button-group">
+          <c-button-group>
+            <a [active]="true" cButton color="primary" [routerLink]="[]">
+              Active link
+            </a>
+            <a cButton color="primary" [routerLink]="[]">
+              Link
+            </a>
+            <a cButton color="primary" [routerLink]="[]">
+              Link
+            </a>
+          </c-button-group>
+        </app-docs-example>
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <c-col xs="12">
+    
+  </c-col>
+  <c-col xs="12">
+    
+  </c-col>
+  <c-col xs="12">
+    
+  </c-col>
+  <c-col xs="12">
+    
+  </c-col>
+  <c-col xs="12">
+    
+  </c-col>
+  <c-col xs="12">
+    
+  </c-col>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Angular Button Group</strong> <span>Vertical variation</span>
+      </c-card-header>
+      <c-card-body>
+        <p class="text-body-secondary small">
+          Create a set of buttons that appear vertically stacked rather than horizontally.
+          <strong>Split button dropdowns are not supported here.</strong>
+        </p>
+        <app-docs-example href="components/button-group/#vertical-variation">
+          <c-button-group [vertical]="true" aria-label="Vertical button group" role="group">
+            <button cButton color="dark">Button</button>
+            <button cButton color="dark">Button</button>
+            <button cButton color="dark">Button</button>
+            <button cButton color="dark">Button</button>
+            <button cButton color="dark">Button</button>
+            <button cButton color="dark">Button</button>
+            <button cButton color="dark">Button</button>
+          </c-button-group>
+          <br>
+        </app-docs-example>
+        <app-docs-example href="components/button-group/#vertical-variation">
+          <c-button-group [vertical]="true" aria-label="Vertical button group" role="group">
+            <button cButton color="primary">Button</button>
+            <button cButton color="primary">Button</button>
+            <c-dropdown variant="btn-group">
+              <button cButton cDropdownToggle>
+                Dropdown
+              </button>
+              <ul cDropdownMenu>
+                <li><a cDropdownItem [routerLink]="[]">Action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Another action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Something else here</a></li>
+                <li cDropdownDivider></li>
+                <li><a cDropdownItem [routerLink]="[]">Separated link</a></li>
+              </ul>
+            </c-dropdown>
+            <button cButton color="primary">Button</button>
+            <button cButton color="primary">Button</button>
+            <c-dropdown variant="btn-group">
+              <button cButton cDropdownToggle>
+                Dropdown
+              </button>
+              <ul cDropdownMenu>
+                <li><a cDropdownItem [routerLink]="[]">Action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Another action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Something else here</a></li>
+                <li cDropdownDivider></li>
+                <li><a cDropdownItem [routerLink]="[]">Separated link</a></li>
+              </ul>
+            </c-dropdown>
+            <c-dropdown placement="right-start" variant="btn-group">
+              <button cButton cDropdownToggle>
+                Dropdown
+              </button>
+              <ul cDropdownMenu dark>
+                <li><a cDropdownItem [routerLink]="[]">Action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Another action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Something else here</a></li>
+                <li cDropdownDivider></li>
+                <li><a cDropdownItem [routerLink]="[]">Separated link</a></li>
+              </ul>
+            </c-dropdown>
+            <c-dropdown variant="btn-group">
+              <button cButton cDropdownToggle>
+                Dropdown
+              </button>
+              <ul cDropdownMenu>
+                <li><a cDropdownItem [routerLink]="[]">Action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Another action</a></li>
+                <li><a cDropdownItem [routerLink]="[]">Something else here</a></li>
+                <li cDropdownDivider></li>
+                <li><a cDropdownItem [routerLink]="[]">Separated link</a></li>
+              </ul>
+            </c-dropdown>
+          </c-button-group>
+        </app-docs-example>
+        <app-docs-example href="components/button-group/#vertical-variation">
+          <form [formGroup]="formRadio1">
+            <c-button-group [vertical]="true" aria-label="Vertical button group" role="group">
+              <input class="btn-check" formControlName="radio1" type="radio" value="Radio1"/>
+              <label (click)="setRadioValue('Radio1')" cButton cFormCheckLabel color="danger"
+                     variant="outline">Radio 1</label>
+
+              <input class="btn-check" formControlName="radio1" type="radio" value="Radio2"/>
+              <label (click)="setRadioValue('Radio2')" cButton cFormCheckLabel color="danger"
+                     variant="outline">Radio 2</label>
+
+              <input class="btn-check" formControlName="radio1" type="radio" value="Radio3"/>
+              <label (click)="setRadioValue('Radio3')" cButton cFormCheckLabel color="danger" variant="outline">Radio
+                3</label>
+            </c-button-group>
+          </form>
+        </app-docs-example>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>

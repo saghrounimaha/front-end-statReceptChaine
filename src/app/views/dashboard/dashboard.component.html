@@ -1,0 +1,277 @@
+<app-widgets-dropdown />
+<c-card class="my-4" >
+  <c-card-body >
+ 
+    <c-chart type="doughnut" [data]="data" [options]="options" height="500" ></c-chart>
+
+  </c-card-body>
+  <c-card-footer>
+    <c-row class="text-center mb-2" [xl]="5" [lg]="4" [sm]="2" [xs]="1" [gutter]="4">
+      <c-col>
+        <div class="text-body-secondary"> Average Rendement:</div>
+        <strong>  {{ avrgren  }}</strong>
+        <c-progress class="mt-2" thin color="success" value="40" aria-label="User visits" />
+      </c-col>
+      <c-col>
+        <div class="text-body-secondary">Total Production</div>
+        <div class="fw-semibold text-truncate">   {{ totalprod }}</div>
+        <c-progress class="mt-2" thin color="info" value="20" aria-label="Unique users" />
+      </c-col>
+      <c-col>
+        <div class="text-body-secondary">Total Employees</div>
+        <div class="fw-semibold text-truncate">  {{ totalempl }} %</div>
+        <c-progress class="mt-2" thin color="warning" value="60" aria-label="Page views" />
+      </c-col>
+    
+  
+    </c-row>
+  </c-card-footer>
+</c-card>
+
+
+
+<!-- <c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-body>
+        <table
+          [hover]="true"
+          [responsive]="true"
+          [striped]="true"
+          align="middle"
+          cTable
+          class="mb-0 border"
+        >
+          <thead class="text-nowrap text-truncate">
+          <tr>
+            <th class="bg-body-tertiary text-center ">
+              <svg cIcon name="cilPeople"></svg>
+            </th>
+            <th class="bg-body-tertiary">User</th>
+            <th class="bg-body-tertiary text-center">Country</th>
+            <th class="bg-body-tertiary">Usage</th>
+            <th class="bg-body-tertiary text-center">Payment Method</th>
+            <th class="bg-body-tertiary">Activity</th>
+          </tr>
+          </thead>
+          <tbody>
+            @for (user of users; track user.name; let i = $index) {
+              <tr>
+              
+                <td>
+                  <div>{{ stat?.date }}</div>
+                  <div class="small text-body-secondary text-nowrap">
+                  <span>
+                    {{ stat.Quantite }} | Registered: {{ stat.Quantite }}
+                  </span>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <svg
+                    cIcon
+                    id="{{ user.country + user.name }}"
+                    name="cif{{ user.country }}"
+                    size="xl"
+                    title="{{ user.country }}"
+                  ></svg>
+                </td> 
+                <td>
+                  <div class="d-flex justify-content-between">
+                    <div class="float-start">
+                      <strong>{{ user.usage }}%</strong>
+                    </div>
+                    <div class="float-end ms-1 text-nowrap">
+                      <small class="text-body-secondary">
+                        {{ user.period }}
+                      </small>
+                    </div>
+                  </div>
+                  <c-progress thin [value]="user.usage" color="{{ user.color }}" aria-label="Usage" />
+                </td>
+                <td class="text-center">
+                  <svg cIcon name="cibCc{{ user.payment }}" size="xl"></svg>
+                </td>
+                <td>
+                  <div class="small text-body-secondary">Last login</div>
+                  <div class="fw-semibold text-nowrap">{{ user.activity }}</div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row> -->
+
+
+<!-- <c-col xs="12" lg="6">
+  <c-card class="mb-4">
+    <c-card-header>
+      Total production , Rendement moyen et Employé actives
+    </c-card-header>
+    <c-card-body>
+      <c-chart type="doughnut" [data]="data" [options]="options"></c-chart>
+    </c-card-body>
+  </c-card>
+</c-col> -->
+
+<c-col xs="12" lg="6">
+  <c-card class="mb-4">
+    <c-card-header>
+      Performance par famille et Quantité par famille
+    </c-card-header>
+    <c-card-body>
+      <c-chart type="bar" [data]="chartData" [options]="basicOptions"></c-chart>
+    </c-card-body>
+  </c-card>
+</c-col>
+
+<c-col xs="12" lg="6">
+  <c-card class="mb-4">
+    <c-card-header>
+      Rendement par Employé
+    </c-card-header>
+    <c-card-body>
+      <c-chart type="bar" [data]="chartDataSumRendementParEmploye" [options]="basicOptions"></c-chart>
+    </c-card-body>
+  </c-card>
+</c-col>
+
+<c-chart type="line" [data]="lineChartData" [options]="lineChartOptions"></c-chart>
+
+<c-col xs="12" lg="6">
+  <c-card class="mb-4">
+    <c-card-header>
+      Rendement par chaine
+    </c-card-header>
+    <c-card-body>
+      <c-chart baseChart
+            [data]="chartPieData"
+            [type]="'pie'"
+            [options]="{ responsive: true }">
+            </c-chart>
+    </c-card-body>
+  </c-card>
+</c-col>
+
+
+<!-- <c-col xs="12" lg="6">
+  <c-card class="mb-4">
+    <c-card-header>
+      Rendement par chaine
+    </c-card-header>
+    <c-card-body>
+      <c-chart type="bar" [data]="chartDataSumRndmtChaine" [options]="basicOptions"></c-chart>
+    </c-card-body>
+  </c-card>
+</c-col> -->
+
+
+<c-col xs="12" lg="6">
+  <c-card class="mb-4">
+    <c-card-header>
+      Temps de Travail par Employé
+    </c-card-header>
+    <c-card-body>
+      <c-chart type="line"
+      [data]="chartDataTempsTravailEmploye"
+      [options]="{ responsive: true }">
+</c-chart>
+            </c-card-body>
+  </c-card>
+</c-col>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<c-card-body>
+  <c-row>
+    <c-col sm="5">
+      <h4 class="card-title mb-0" id="traffic">Traffic</h4>
+      <div class="small text-body-secondary">Janvier 2022 - Fevrier 2024</div>
+    </c-col>
+    <c-col class="d-none d-md-block" sm="7">
+     
+      <form>
+        <c-button-group class="float-end me-3" >
+          <input
+            class="btn-check"
+            type="radio"
+            id="dayRadio"
+          />
+          <button
+            (click)="fetchData('day')"
+            cButton
+            cFormCheckLabel
+            color="secondary"
+            variant="outline"
+            for="dayRadio"
+          >
+            Day
+          </button>
+          <input
+            class="btn-check"
+            type="radio"
+            id="radioMonth"
+          />
+          <button
+            (click)="fetchData('month')"
+            cButton
+            cFormCheckLabel
+            color="secondary"
+            variant="outline"
+            for="radioMonth"
+          >
+            Month
+          </button>
+          <input
+            class="btn-check"
+            type="radio"
+            id="radioYear"
+          />
+          <button
+            (click)="fetchData('year')"
+            cButton
+            cFormCheckLabel
+            color="secondary"
+            variant="outline"
+            for="radioYear"
+          >
+            Year
+        </button>
+        </c-button-group>
+      </form>
+    </c-col>
+  </c-row>
+  <c-chart type="line" [data]="chartDataTime"></c-chart>
+
+</c-card-body>
+
+
+<!-- 
+<div class="col-md-6">
+  <h4>Tutorials List</h4>
+  <ul class="list-group">
+    @for (list of statlist; track list.id; let i = $index) {
+    <li
+     
+    >
+      {{ list.title }}
+    </li>
+    }
+  </ul>
+
+  <button class="m-3 btn btn-sm btn-danger">
+    Remove All
+  </button>
+</div> -->

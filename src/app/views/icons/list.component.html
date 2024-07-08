@@ -1,0 +1,60 @@
+<c-row>
+  <c-col xs>
+    <c-card class="mb-4">
+      <c-card-body>
+        <div class="d-flex justify-content-between mb-4">
+          <!-- Colonne de gauche pour le champ de filtre -->
+          <div>
+            <input type="text" class="form-control input-lg" placeholder="Filter" [(ngModel)]="filterText" (ngModelChange)="applyFilter()" />
+          </div>
+
+          <!-- Colonne de droite pour le bouton de création avec taille réduite -->
+          <div>
+            <button class="btn btn-success btn-sm" type="button" (click)="openSweetAlert()">Create</button>
+          </div>
+        </div>
+
+        <table class="table table-bordered table-striped mb-0">
+          <thead>
+            <tr>
+              <th class="text-center">
+                <svg cIcon name="cilPeople"></svg>
+              </th>
+              <th>Date</th>
+              <th class="text-center">Quantité</th>
+              <th>ID Chaîne</th>
+              <th class="text-center">ID Employé</th>
+              <th>ID Famille</th>
+              <th>ID Machine</th>
+              <th>ID Opération</th>
+              <th>Rendement</th>
+              <th>Rendement Machine</th>
+              <th>Total Temps de Travail</th>
+              <th>Temps Unitaire</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let stat of filteredStatList | paginate: { itemsPerPage: pageSize, currentPage: page }; trackBy: trackById; let i = index">
+              <td class="text-center">
+                <svg cIcon name="cilPeople"></svg>
+              </td>
+              <td>{{ stat?.date }}</td>
+              <td class="text-center">{{ stat?.quantite }}</td>
+              <td>{{ stat?.idchaineMontage }}</td>
+              <td class="text-center">{{ stat?.idemploye }}</td>
+              <td>{{ stat?.idfamille }}</td>
+              <td>{{ stat?.idmachine }}</td>
+              <td>{{ stat?.idoperation }}</td>
+              <td>{{ stat?.rndmt }}</td>
+              <td>{{ stat?.rndmtchaine }}</td>
+              <td>{{ stat?.totalTpsTravail }}</td>
+              <td>{{ stat?.tpsUnitaire }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
+
+<pagination-controls (pageChange)="page = $event"></pagination-controls>

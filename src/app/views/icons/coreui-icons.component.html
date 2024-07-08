@@ -1,0 +1,190 @@
+<form [formGroup]="statForm" >
+  <div class="form-group">
+    <label>ID Chaine de montage</label>
+    <input
+      type="text"
+      formControlName="idchaineMontage"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['idchaineMontage'].errors }"
+
+    /> 
+    @if (submitted && f['idchaineMontage'].errors) {
+      <div class="invalid-feedback">
+        @if (f['idchaineMontage'].errors['idchaineMontage']) {
+        <div>ID Chaine de montage is required</div>
+        }   </div>
+      }
+
+    <label>ID Employé</label>
+    <input
+      type="number"
+      formControlName="idemploye"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['idemploye'].errors }"
+
+    /> 
+    @if (submitted && f['idemploye'].errors) {
+      <div class="invalid-feedback">
+        @if (f['idemploye'].errors['idemploye']) {
+        <div>ID Employé is required</div>
+        }   </div>
+      }
+
+    <label>Quantité</label>
+    <input
+      type="text"
+      formControlName="quantite"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['quantite'].errors }"
+
+    /> 
+    @if (submitted && f['quantite'].errors) {
+      <div class="invalid-feedback">
+        @if (f['quantite'].errors['quantite']) {
+        <div>Quantité is required</div>
+        }   </div>
+      }
+
+    <label>Temps de travail total</label>
+    <input
+      type="text"
+      formControlName="totalTpsTravail"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['totalTpsTravail'].errors }"
+
+    />  
+    @if (submitted && f['totalTpsTravail'].errors) {
+      <div class="invalid-feedback">
+        @if (f['totalTpsTravail'].errors['totalTpsTravail']) {
+        <div>Temps de travail total is required</div>
+        }   </div>
+      }
+
+    <label>Date</label>
+    <input
+      type="text"
+      formControlName="date"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['date'].errors }"
+
+    />  
+    @if (submitted && f['date'].errors) {
+      <div class="invalid-feedback">
+        @if (f['date'].errors['date']) {
+        <div>Date is required</div>
+        }   </div>
+      }
+
+      <label>Rendement</label>
+      <input
+        type="text"
+        formControlName="rndmt"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['rndmt'].errors }"
+  
+      />  
+      @if (submitted && f['rndmt'].errors) {
+        <div class="invalid-feedback">
+          @if (f['rndmt'].errors['rndmt']) {
+          <div>Date is required</div>
+          }   </div>
+        }
+
+    <label>ID Operation</label>
+    <input
+      type="text"
+      formControlName="idoperation"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['idoperation'].errors }"
+
+    />  
+    @if (submitted && f['idoperation'].errors) {
+      <div class="invalid-feedback">
+        @if (f['idoperation'].errors['idoperation']) {
+        <div>ID Operation is required</div>
+        }   </div>
+      }
+
+    <label>ID Famille</label>
+    <input
+      type="text"
+      formControlName="idfamille"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['idfamille'].errors }"
+
+    />  
+    @if (submitted && f['idfamille'].errors) {
+      <div class="invalid-feedback">
+        @if (f['idfamille'].errors['idfamille']) {
+        <div>ID Famille is required</div>
+        }   </div>
+      }
+
+    <label>Temps de présence total</label>
+    <input
+      type="text"
+      formControlName="totalTpsPrSence"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['totalTpsPrSence'].errors }"
+
+    /> 
+    @if (submitted && f['totalTpsPrSence'].errors) {
+      <div class="invalid-feedback">
+        @if (f['totalTpsPrSence'].errors['totalTpsPrSence']) {
+        <div>Temps de présence total is required</div>
+        }   </div>
+      }
+
+    <label>Temps unitaire</label>
+    <input
+      type="text"
+      formControlName="tpsUnitaire"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['tpsUnitaire'].errors }"
+
+    /> 
+    @if (submitted && f['tpsUnitaire'].errors) {
+      <div class="invalid-feedback">
+        @if (f['tpsUnitaire'].errors['tpsUnitaire']) {
+        <div>Temps unitaire is required</div>
+        }  </div>
+      }
+
+    <label>Rendement chaine</label>
+    <input
+      type="text"
+      formControlName="rndmtchaine"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['rndmtchaine'].errors }"
+
+    /> 
+    @if (submitted && f['rndmtchaine'].errors) {
+      <div class="invalid-feedback">
+        @if (f['rndmtchaine'].errors['rndmtchaine']) {
+        <div>Rendement chaine is required</div>
+        }   </div>
+      }
+
+    <label>ID Machine</label>
+    <input
+      type="text"
+      formControlName="idmachine"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['idmachine'].errors }"
+
+    /> 
+    @if (submitted && f['idmachine'].errors) {
+      <div class="invalid-feedback">
+        @if (f['idmachine'].errors['idmachine']) {
+        <div>ID Machine is required</div>
+        } 
+
+  </div>
+}
+</div>
+
+<div class="d-flex justify-content-center">
+  <button class="btn btn-success" type="submit" (click)="create()">Add</button>
+</div>
+<br>
+  </form>

@@ -1,0 +1,29 @@
+<c-row ngPreserveWhitespaces>
+  <c-col class="mb-4" xs="12">
+    <c-card>
+      <c-card-header>
+        <strong>Courbe représentant le rendement par chaine</strong>
+      </c-card-header>
+      <c-card-body>
+        <c-col lg="10">
+          <c-card class="mb-4">
+            <c-card-header>
+              Rendement par chaine
+            </c-card-header>
+            <c-card-body>
+              <c-chart baseChart
+                    [data]="chartPieData"
+                    [type]="'pie'"
+                    [options]="{ responsive: true }">
+                    </c-chart>
+            </c-card-body>
+          </c-card>
+        </c-col>
+       
+      </c-card-body>
+    </c-card>
+  </c-col>
+  <c-col xs="12">
+   
+  </c-col>
+</c-row>

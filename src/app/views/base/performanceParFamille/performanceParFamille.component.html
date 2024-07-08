@@ -1,0 +1,26 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Courbe représentant la quantité produite par famille</strong>
+      </c-card-header>
+      <c-card-body>
+        <p class="text-body-secondary small">
+          <div class="accordion-body">
+            <c-col  lg="10">
+              <c-card class="mb-4">
+                <c-card-header>
+                   Quantité par famille
+                </c-card-header>
+                <c-card-body>
+                  <c-chart type="bar" [data]="chartData" [options]="basicOptions"></c-chart>
+                </c-card-body>
+              </c-card>
+            </c-col>
+          </div>        
+      
+      </c-card-body>
+    </c-card>
+
+  </c-col>
+</c-row>
